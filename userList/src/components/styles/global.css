@@ -1,0 +1,7 @@
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;       /* карточки будут переноситься на следующую строку */
+  gap: 12px;             /* расстояние между карточками */
+  justify-content: center; /* выравнивание по центру */
+  padding: 16px;
+}

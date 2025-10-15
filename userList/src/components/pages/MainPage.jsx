@@ -1,15 +1,24 @@
+import UserCard from "../UserCard"
+import '../styles/global.css'
 
-function MainPage({userData}) {
+function MainPage({userData,addToFavorite}) {
     
 
     return (
-        <>
-        <ul>
-            {userData.map((user, id) => (
-                <li key={user.id}>{user.name}</li>
-            ))}
-        </ul>
-        </>
+       <>
+       <div className="cards-container">
+
+        {userData.map(user => (
+            <UserCard
+            key={user.id}
+            user={user}
+            addToFavorite={() => addToFavorite(user)}
+            />
+        ))}
+
+       </div>
+       
+       </>
     )
 }
 

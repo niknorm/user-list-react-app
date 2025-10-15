@@ -1,30 +1,30 @@
-import { useEffect, useState } from "react"
+
 import MainPage from "./components/pages/MainPage"
+import useFetch from "./components/hooks/useFetch"
+import { useState } from "react"
 
 function App() {
-  const [userData, setUserData] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(false)
+const [favorites, setFavorites] = useState([])
 
-  useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/users')
-    .then((res) => {
-      if(!res.ok) {
-        throw new Error('error')
-      }
-      return res.json()
-    })
-    .then((data) => setUserData(data))
-    .catch(() => setError(true))
-    .finally(() => setLoading(false))
-  },[])
+const {userData, loading, error} = useFetch()
 
-  if(loading) return <p>Загрузка пользователей</p>
-  if(error) return <p>Ошибка загрузки</p>
+const addToFavorite = (user) => {
+  if(!favorites.some(fav => fav.id === user.id)){
+    setFavorites([...favorites, user])
+    console.log('Favorites:', favorites)
+
+  }
+
+ 
+
+}
+
+if(loading) return <p>Загрузка пользователей</p>
+if(error) return <p>Ошибка загрузки</p>
 
   return (
     <div>
-     <MainPage userData={userData} />
+     <MainPage userData={userData} addToFavorite={addToFavorite} />
     </div>
   ) 
 }
