@@ -21,6 +21,14 @@ const removeFavorites = (user) => {
   setFavorites(favorites.filter(fav => fav.id !== user.id))
 }
 
+ const handleAddUser = (newUserData) => {
+        const newUser = {
+            ...newUserData,
+            id: Date.now()
+        }
+        setFavorites([...favorites, newUser])
+    }
+
 if(loading) return <p>Загрузка пользователей</p>
 if(error) return <p>Ошибка загрузки</p>
 
@@ -33,7 +41,7 @@ if(error) return <p>Ошибка загрузки</p>
     <div>
       {page === 'main' ? 
       <MainPage userData={userData} addToFavorite={addToFavorite} /> :
-      <FavoritesPage favorites={favorites} removeFavorites={removeFavorites} /> }
+      <FavoritesPage favorites={favorites} removeFavorites={removeFavorites} handleAddUser={handleAddUser} /> }
       
     </div>
     </>
