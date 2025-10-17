@@ -1,6 +1,6 @@
 import styles from './styles/UserCard.module.css'
 
-function UserCard({user, addToFavorite}) {
+function UserCard({user, addToFavorite, isFavoritePage, removeFavorites}) {
 
     return(
         <>
@@ -8,7 +8,9 @@ function UserCard({user, addToFavorite}) {
             <h3>{user.name}</h3>
             <p>last name:{user.username}</p>
             <p>age:{Math.floor(Math.random() * 100) + 1}</p>
-            <button onClick={() => addToFavorite(user)}></button>
+            {isFavoritePage ? 
+            <button onClick={() => removeFavorites(user)}>Удалить</button> :
+            <button onClick={() => addToFavorite(user)}>Добавить в избранное</button>}
         </div>
         
         </>
@@ -16,3 +18,4 @@ function UserCard({user, addToFavorite}) {
 }
 
 export default UserCard
+

@@ -13,6 +13,7 @@ function MainPage({userData,addToFavorite}) {
             key={user.id}
             user={user}
             addToFavorite={() => addToFavorite(user)}
+            isFavoritePage={false}
             />
         ))}
 

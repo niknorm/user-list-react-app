@@ -1,17 +1,16 @@
 .user-card {
-  border: 1px solid #000; /* граница для разделения карточек */
-  padding: 12px;          /* внутренние отступы */
-  margin: 8px;            /* расстояние между карточками */
-  border-radius: 6px;     /* слегка закругленные углы */
-  width: 200px;           /* фиксированная ширина карточки */
-  box-sizing: border-box; /* чтобы padding не увеличивал ширину */
+  border: 1px solid #000; 
+  padding: 10px;         
+  margin: 8px;           
+  border-radius: 6px;     
+  width: 200px;           
+  box-sizing: border-box; 
   display: flex;
-  flex-direction: column; /* порядок элементов по вертикали */
-  gap: 8px;               /* расстояние между элементами внутри карточки */
+  flex-direction: column; 
 }
 
 .user-card button {
-  padding: 6px 10px;
+  padding: 4px 10px;
   border: 1px solid #000;
   border-radius: 4px;
   cursor: pointer;

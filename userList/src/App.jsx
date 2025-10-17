@@ -2,11 +2,12 @@
 import MainPage from "./components/pages/MainPage"
 import useFetch from "./components/hooks/useFetch"
 import { useState } from "react"
+import FavoritesPage from "./components/pages/FavoritesPage"
 
 function App() {
 const [favorites, setFavorites] = useState([])
-
 const {userData, loading, error} = useFetch()
+const [page, setPage] = useState('main')
 
 const addToFavorite = (user) => {
   if(!favorites.some(fav => fav.id === user.id)){
@@ -14,18 +15,28 @@ const addToFavorite = (user) => {
     console.log('Favorites:', favorites)
 
   }
+}
 
- 
-
+const removeFavorites = (user) => {
+  setFavorites(favorites.filter(fav => fav.id !== user.id))
 }
 
 if(loading) return <p>Загрузка пользователей</p>
 if(error) return <p>Ошибка загрузки</p>
 
   return (
+    <>
+    <nav className="header-nav">
+      <button className="button-nav" onClick={() => setPage('main')}>Главная</button>
+      <button className="button-nav" onClick={() => setPage('favorites')}>Избранные</button>
+    </nav>
     <div>
-     <MainPage userData={userData} addToFavorite={addToFavorite} />
+      {page === 'main' ? 
+      <MainPage userData={userData} addToFavorite={addToFavorite} /> :
+      <FavoritesPage favorites={favorites} removeFavorites={removeFavorites} /> }
+      
     </div>
+    </>
   ) 
 }
 
