@@ -3,9 +3,10 @@ import MainPage from "./components/pages/MainPage"
 import useFetch from "./components/hooks/useFetch"
 import { useState } from "react"
 import FavoritesPage from "./components/pages/FavoritesPage"
+import useLocalStorage from "./components/hooks/useLocalStorage"
 
 function App() {
-const [favorites, setFavorites] = useState([])
+const [favorites, setFavorites] = useLocalStorage('favorites', [])
 const {userData, loading, error} = useFetch()
 const [page, setPage] = useState('main')
 

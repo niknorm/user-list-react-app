@@ -20,7 +20,7 @@ function CreateEditForm({onSubmit, defaultValues = {}, onClose }) {
         <form  onSubmit={handleSubmit(submitHandler)}
         className={styles['modal-form']}>
             <div>
-                <label>имя</label>
+                
                 <input 
                 {...register('name',{required: true})}
                 placeholder='Введите имя' 
@@ -28,7 +28,7 @@ function CreateEditForm({onSubmit, defaultValues = {}, onClose }) {
                 {errors.name && <span>Обязательное поле</span>}
             </div>
             <div>
-                <label>фамилия</label>
+                
                 <input 
                 {...register('username',{required: true})}
                 placeholder='Введите фамилию' 
@@ -36,7 +36,7 @@ function CreateEditForm({onSubmit, defaultValues = {}, onClose }) {
                 {errors.username && <span>Обязательное поле</span>}
             </div>
             <div>
-                <label>возраст</label>
+                
                 <input 
                 {...register('age',{required: true,  min: 1})}
                 placeholder='Введите возраст' 
