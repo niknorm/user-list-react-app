@@ -13,7 +13,13 @@ useEffect(() => {
       }
       return res.json()
     })
-    .then((data) => setUserData(data))
+    .then((data) => {
+      const ageUser = data.map((user) => ({
+        ...user,
+        age: Math.floor(Math.random() * 100) + 1,
+      }))
+      setUserData(ageUser)
+    })
     .catch(() => setError(true))
     .finally(() => setLoading(false))
   },[])

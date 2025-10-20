@@ -7,7 +7,7 @@ function UserCard({user, addToFavorite, isFavoritePage, removeFavorites}) {
         <div className={styles['user-card']}>
             <h3>{user.name}</h3>
             <p>last name:{user.username}</p>
-            <p>age:{Math.floor(Math.random() * 100) + 1}</p>
+            <p>age: {user.age}</p>
             {isFavoritePage ? 
             <button onClick={() => removeFavorites(user)}>Удалить</button> :
             <button onClick={() => addToFavorite(user)}>Добавить в избранное</button>}
