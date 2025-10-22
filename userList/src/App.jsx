@@ -1,9 +1,9 @@
 
-import MainPage from "./components/pages/MainPage"
-import useFetch from "./components/hooks/useFetch"
+import MainPage from "./pages/MainPage"
+import useFetch from "./hooks/useFetch"
 import { useState } from "react"
-import FavoritesPage from "./components/pages/FavoritesPage"
-import useLocalStorage from "./components/hooks/useLocalStorage"
+import FavoritesPage from "./pages/FavoritesPage"
+import useLocalStorage from "./hooks/useLocalStorage"
 
 function App() {
 const [favorites, setFavorites] = useLocalStorage('favorites', [])

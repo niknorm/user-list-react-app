@@ -1,4 +1,4 @@
-import UserCard from "../UserCard"
+import UserCard from "../components/UserCard/UserCard"
 import '../styles/global.css'
 
 function MainPage({userData,addToFavorite}) {

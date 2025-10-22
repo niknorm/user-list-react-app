@@ -1,5 +1,5 @@
 import {useForm} from 'react-hook-form'
-import styles from './styles/Modal.module.css'
+import styles from '../styles/CreateEditForm.module.css'
 
 function CreateEditForm({onSubmit, defaultValues = {}, onClose }) {
 

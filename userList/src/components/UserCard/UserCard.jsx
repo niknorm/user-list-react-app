@@ -1,4 +1,4 @@
-import styles from './styles/UserCard.module.css'
+import styles from '../styles/UserCard.module.css'
 
 function UserCard({user, addToFavorite, isFavoritePage, removeFavorites}) {
 
