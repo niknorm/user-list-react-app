@@ -1,8 +1,8 @@
 import {FavoritesProvider} from './context/FavoritesContext'
-import MainPage from "./pages/MainPage"
 import useFetch from "./hooks/useFetch"
 import { useState } from "react"
-import FavoritesPage from "./pages/FavoritesPage"
+import Navigation from './components/Navigation/Navigation'
+import PageRanderer from './components/PageRenderer/PageRenderer'
 
 function App() {
 
@@ -14,16 +14,8 @@ if(error) return <p>Ошибка загрузки</p>
 
   return (
     <FavoritesProvider>
-    <nav className="header-nav">
-      <button className="button-nav" onClick={() => setPage('main')}>Главная</button>
-      <button className="button-nav" onClick={() => setPage('favorites')}>Избранные</button>
-    </nav>
-    <div>
-      {page === 'main' ? 
-      <MainPage userData={userData} /> :
-      <FavoritesPage/> }
-      
-    </div>
+      <Navigation page={page} setPage={setPage} />
+      <PageRanderer page={page} userData={userData} />
     </FavoritesProvider>
   ) 
 }
