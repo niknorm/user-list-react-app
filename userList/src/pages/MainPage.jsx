@@ -1,7 +1,10 @@
+import { useFavorites } from "../context/FavoritesContext"
 import UserCard from "../components/UserCard/UserCard"
 import '../styles/global.css'
 
-function MainPage({userData,addToFavorite}) {
+function MainPage({userData}) {
+
+    const {addToFavorite} = useFavorites()
     
 
     return (

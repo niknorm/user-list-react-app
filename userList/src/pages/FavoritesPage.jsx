@@ -1,10 +1,12 @@
+import { useFavorites } from "../context/FavoritesContext"
 import { useState } from "react"
 import UserCard from "../components/UserCard/UserCard"
 import '../styles/global.css'
-import styles from '../styles/Modal.module.css'
+import styles from '../components/CreateEditForm/CreateEditForm.module.css'
 import CreateEditForm from "../components/CreateEditForm/CreateEditForm"
 
-function FavoritesPage({favorites = [], removeFavorites, handleAddUser}) {
+function FavoritesPage() {
+    const {favorites, removeFavorites, handleAddUser} = useFavorites()
     const [inputQuery, setInputQuery] = useState('')
     const [isModalOpen, setIsModalOpen] = useState(false)
 
